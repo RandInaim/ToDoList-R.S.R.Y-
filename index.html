@@ -5,17 +5,37 @@
     <meta charset="utf-8">
     <title>tdd todo</title>
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
+
   <body>
-    <div id = "todo-container">
-        <ul>
-        </ul>
-    </div>
+
+    <h1>Here Is Your ToDo List!</h1>
+    <div>
+
+    
     <form id="add-todo">
-      <input type="text" name="description" value="">
-      <input type="submit" name="" value="Submit">
+            <input type="text" name="description" value="">
+            <input type="submit" name="" value="Submit">
     </form>
+
+
+    <div id = "todo-container" class="todo-container">
+        <ol>
+            <li>
+                <input  class="checb"  type="checkbox" class="notDone">&nbsp;&nbsp;</input> 
+                <span  class="inputtext" >TEXT OF TO DO ITEM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                
+                <button class="editButton" ><i class="material-icons">&#xe22b;</i></button>
+                <button class="deleteButton" ><i class="material-icons">&#10007;</i></button>
+            </li>
+        </ol>
+    </div>
+</div>
+   
   </body>
+
+
   <script type="text/javascript" src = "./logic.js"></script>
   <script type="text/javascript" src = "./dom.js"></script>
 </html>
