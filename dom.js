@@ -6,21 +6,36 @@
 	var container = document.getElementById('todo-container');
 	var addTodoForm = document.getElementById('add-todo');
 
-	// var state = [
-	//   { id: -3, description: 'first todo' },
-	//   { id: -2, description: 'second todo' },
-	//   { id: -1, description: 'third todo' },
-	// ]; // this is our initial todoList
+	var submit = document.getElementById('submitButton');
+
+	submit.addEventListener('click', function(event) {
+		event.preventDefault();
+		var text = document.getElementById('inputText');
+
+		var myObject = { id: todoFunctions.generateId(), description: text.value, status: false };
+		var newState = todoFunctions.addTodo(state, myObject); //the new array
+		update(newState);
+		createTodoNode(myObject);
+	});
+
+	var state = [ { id: -3, description: 'first todo', status: false } ]; // this is our initial todoList
 
 	// This function takes a todo, it returns the DOM node representing that todo
 	var createTodoNode = function(todo) {
 		var todoNode = document.createElement('li');
 		// you will need to use addEventListener
-
-		// add span holding description
+		todoNode.innerText = todo.description;
+		//var textElement = document.createTextNode(todo.description);
+		//todoNode.appendChild(textElement);
+		// add span holding descriptiondeleteTodo
 
 		// this adds the delete button
 		var deleteButtonNode = document.createElement('button');
+		var deleteIcon = document.createElement('i');
+		deleteIcon.innerHTML = '<i class="material-icons">&#10007;</i>';
+		deleteButtonNode.appendChild(deleteIcon);
+
+		deleteButtonNode.style.background = 'red';
 		deleteButtonNode.addEventListener('click', function(event) {
 			var newState = todoFunctions.deleteTodo(state, todo.id);
 			update(newState);
