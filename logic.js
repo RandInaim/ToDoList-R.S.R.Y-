@@ -57,6 +57,4 @@ var todoFunctions = {
 // http://www.matteoagosti.com/blog/2013/02/24/writing-javascript-modules-for-both-browser-and-node/
 if (typeof module !== "undefined") {
   module.exports = todoFunctions;
-} // Part 1. Fill in any missing parts of the todoFunction object!
-// you can access these on todo.todoFunctions
-// For part one we expect you to use tdd
+}
