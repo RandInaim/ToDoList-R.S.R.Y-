@@ -1,32 +1,62 @@
 var test = require("tape");
 var logic = require("./logic");
 
-var todos = [
-  {
-    done: false,
-    text: "do that blah balh"
-  }
-];
+test("Adding items", function(t) {
+  var todos = [
+    {
+      id: 1,
+      done: false,
+      text: "do that blah balh"
+    }
+  ];
 
-var newTodo = {
-  done: true,
-  text: "read a book"
-};
-
-var newList = [
-  {
-    done: false,
-    text: "do that blah balh"
-  },
-  {
+  var newTodo = {
+    id: 2,
     done: true,
     text: "read a book"
-  }
-];
+  };
 
-test("Adding items", function(t) {
+  var expected = [
+    {
+      id: 1,
+      done: false,
+      text: "do that blah balh"
+    },
+    {
+      id: 2,
+      done: true,
+      text: "read a book"
+    }
+  ];
   var actual = logic.addTodo(todos, newTodo);
-  var expected = newList;
   t.deepEqual(actual, expected, "Should return new array with new todo");
+  t.end();
+});
+
+test("Deleting items", function(t) {
+  var actual = [
+    {
+      id: 1,
+      done: false,
+      text: "do that blah balh"
+    },
+    {
+      id: 2,
+      done: true,
+      text: "read a book"
+    }
+  ];
+
+  var expected = [
+    {
+      id: 1,
+      done: false,
+      text: "do that blah balh"
+    }
+  ];
+
+  var idToDelete = actual[0].id;
+  actual = logic.deleteTodo(actual, 2);
+  t.deepEqual(actual, expected, "Should return array with deleted to do");
   t.end();
 });
