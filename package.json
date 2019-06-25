@@ -1,0 +1,20 @@
+{
+  "name": "ToDoList-R.S.R.Y-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dom.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fack2/ToDoList-R.S.R.Y-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fack2/ToDoList-R.S.R.Y-/issues"
+  },
+  "homepage": "https://github.com/fack2/ToDoList-R.S.R.Y-#readme"
+}
