@@ -30,7 +30,9 @@
 		todoNode.appendChild(checkbox);
 
 		// text of item list
-		var textElement = document.createTextNode(todo.description);
+		var textElement = document.createElement('p');
+		textElement.innerText = todo.description;
+		textElement.contentEditable = 'false';
 		todoNode.appendChild(textElement);
 
 		// edit button
@@ -39,6 +41,15 @@
 		editIcon.innerHTML = '<i class="material-icons">&#xe22b;</i>';
 		editButtonNode.appendChild(editIcon);
 		todoNode.appendChild(editButtonNode);
+		var count = 1;
+		editButtonNode.addEventListener('click', function(event) {
+			if (count % 2 != 0) {
+				textElement.contentEditable = true;
+			} else {
+				textElement.contentEditable = false;
+			}
+			count++;
+		});
 
 		// add span holding descriptiondeleteTodo
 		// this adds the delete button
