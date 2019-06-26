@@ -1,3 +1,5 @@
+//var test = require("./test");
+
 // part 2 linking it all together
 // The function here is called an iife,
 // it keeps everything inside hidden from the rest of our application
@@ -24,11 +26,16 @@
 
   var state = []; // this is our initial todoList
 
+  var sortButton = document.getElementById("sort");
+  sortButton.addEventListener("click", function() {
+    var sortFunction = (a, b) => (a.done > b.done ? 1 : -1);
+    var sorted = todoFunctions.sortTodos(state, sortFunction);
+    update(sorted);
+  });
+
   // This function takes a todo, it returns the DOM node representing that todo
   var createTodoNode = function(todo) {
     var todoNode = document.createElement("li");
-    var todoNodeUl = document.createElement("ul");
-    todoNodeUl.appendChild(todoNode);
 
     //add the checkbox
     var checkbox = document.createElement("input");
