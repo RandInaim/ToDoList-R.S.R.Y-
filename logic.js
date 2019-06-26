@@ -49,7 +49,7 @@ var todoFunctions = {
 		// in the new todo array, all elements will remain unchanged except the one with id: idToMark
 		// this element will have its done value toggled
 		// hint: array.map
-		var marked = todos.map(function(ele) {
+		var done = todos.filter(function(ele) {
 			if (ele.id === idToMark) {
 				if (ele.done === false) {
 					ele.done = true;
@@ -59,7 +59,7 @@ var todoFunctions = {
 			}
 			return ele;
 		});
-		return marked;
+		return done;
 	},
 	sortTodos: function(todos, sortFunction) {
 		// stretch goal! Do this last
