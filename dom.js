@@ -23,12 +23,24 @@
 	// This function takes a todo, it returns the DOM node representing that todo
 	var createTodoNode = function(todo) {
 		var todoNode = document.createElement('li');
-		// you will need to use addEventListener
-		todoNode.innerText = todo.description;
-		//var textElement = document.createTextNode(todo.description);
-		//todoNode.appendChild(textElement);
-		// add span holding descriptiondeleteTodo
 
+		//add the checkbox
+		var checkbox = document.createElement('input');
+		checkbox.type = 'checkbox';
+		todoNode.appendChild(checkbox);
+
+		// text of item list
+		var textElement = document.createTextNode(todo.description);
+		todoNode.appendChild(textElement);
+
+		// edit button
+		var editButtonNode = document.createElement('button');
+		var editIcon = document.createElement('i');
+		editIcon.innerHTML = '<i class="material-icons">&#xe22b;</i>';
+		editButtonNode.appendChild(editIcon);
+		todoNode.appendChild(editButtonNode);
+
+		// add span holding descriptiondeleteTodo
 		// this adds the delete button
 		var deleteButtonNode = document.createElement('button');
 		var deleteIcon = document.createElement('i');

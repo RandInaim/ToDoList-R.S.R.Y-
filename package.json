@@ -4,7 +4,7 @@
   "description": "",
   "main": "dom.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/fack2/ToDoList-R.S.R.Y-/issues"
   },
-  "homepage": "https://github.com/fack2/ToDoList-R.S.R.Y-#readme"
+  "homepage": "https://github.com/fack2/ToDoList-R.S.R.Y-#readme",
+  "devDependencies": {
+    "tap-spec": "^5.0.0",
+    "tape": "^4.10.2"
+  }
 }
