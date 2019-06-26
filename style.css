@@ -1,6 +1,65 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:500, 700);
+header {
+  text-align: center;
+  color: #435757;
+}
+body {
+  /* background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%); */
+  background: white;
+  font: 500 1.2em/1.2 "Roboto", sans-serif;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
 .todo-container {
-	background: #f2f2f2;
-	border: 1px solid black;
-	border-radius: 15px;
-	margin-top: 10px;
+  /* background: #f2f2f2; */
+  border: 1px solid;
+  border-radius: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  background: linear-gradient(-20deg, #d0b782 20%, #a0cecf 80%);
+}
+
+li {
+  display: grid;
+  margin-right: 5%;
+  border-top: 1px dashed white;
+  /* border: 1px dashed white; */
+  grid-template-columns: repeat(10, 0.4fr);
+  text-decoration: none;
+}
+button {
+  border-radius: 5px;
+}
+.material-icons {
+  margin: -30%;
+  width: 25px;
+  height: 25px;
+}
+#cBox {
+  margin: auto;
+  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+}
+
+#textBox {
+  margin: auto;
+  grid-column: span 7;
+  width: 100%;
+  height: 30px;
+  justify-content: center;
+  border-color: red;
+}
+#editBox {
+  width: 25px;
+  height: 25px;
+  margin: auto;
+}
+#deleteBox {
+  width: 25px;
+  height: 25px;
+  margin: auto;
+  float: right;
 }
