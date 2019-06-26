@@ -49,23 +49,20 @@ var todoFunctions = {
     // in the new todo array, all elements will remain unchanged except the one with id: idToMark
     // this element will have its done value toggled
     // hint: array.map
-    var done = todos.filter(function(ele) {
-      if (ele.id === idToMark) {
-        if (ele.done === false) {
-          ele.done = true;
-        } else {
-          ele.done = false;
-        }
+    var updated = todos.map(function(ele) {
+      if (ele.id == idToMark) {
+        ele.status = !ele.status;
       }
       return ele;
     });
-    return done;
+    return updated;
   },
   sortTodos: function(todos, sortFunction) {
     // stretch goal! Do this last
     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
     // sortFunction will have same signature as the sort function in array.sort
     // hint: array.slice, array.sort
+    // var sortFunction = (a, b) => (a.status > b.status ? 1 : -1);
     var sorted = todos.sort(sortFunction);
     return sorted;
   }

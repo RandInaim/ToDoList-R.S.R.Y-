@@ -25,10 +25,10 @@
   });
 
   var state = []; // this is our initial todoList
-
   var sortButton = document.getElementById("sort");
-  sortButton.addEventListener("click", function() {
-    var sortFunction = (a, b) => (a.done > b.done ? 1 : -1);
+  sortButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    var sortFunction = (a, b) => (a.status > b.status ? 1 : -1);
     var sorted = todoFunctions.sortTodos(state, sortFunction);
     update(sorted);
   });
@@ -39,6 +39,15 @@
 
     //add the checkbox
     var checkbox = document.createElement("input");
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.checked = todo.status;
+    todoNode.appendChild(checkbox);
+    checkbox.addEventListener("change", function(event) {
+      const newstate = todoFunctions.markTodo(state, todo.id);
+      update(newstate);
+    });
+
+    // text of item list
     checkbox.id = "cBox";
     checkbox.type = "checkbox";
     todoNode.appendChild(checkbox);
@@ -52,10 +61,12 @@
 
     // edit button
     var editButtonNode = document.createElement("button");
+
     editButtonNode.id = "editBox";
     var editIcon = document.createElement("i");
     editIcon.innerHTML = '<i style={font-size:24px} class="far">&#xf044;</i>';
     editIcon.style.alignContent = "center";
+
     editButtonNode.appendChild(editIcon);
     todoNode.appendChild(editButtonNode);
     var count = 1;
