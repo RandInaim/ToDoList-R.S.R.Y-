@@ -36,7 +36,6 @@ var todoFunctions = {
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // return a new array, this should not contain any todo with an id of idToDelete
     // hint: array.filter
-    idToDelete = 2;
     var result = todos.filter(function(ele) {
       if (ele.id !== idToDelete) {
         return ele;
