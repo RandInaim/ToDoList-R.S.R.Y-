@@ -24,9 +24,10 @@
     createTodoNode(myObject);
   });
 
-  var state = [{ id: -3, description: "first todo", status: false }]; // this is our initial todoList
+  var state = []; // this is our initial todoList
   var sortButton = document.getElementById("sort");
-  sortButton.addEventListener("click", function() {
+  sortButton.addEventListener("click", function(event) {
+    event.preventDefault();
     var sortFunction = (a, b) => (a.status > b.status ? 1 : -1);
     var sorted = todoFunctions.sortTodos(state, sortFunction);
     update(sorted);
@@ -47,15 +48,25 @@
     });
 
     // text of item list
+    checkbox.id = "cBox";
+    checkbox.type = "checkbox";
+    todoNode.appendChild(checkbox);
+
+    // text of item list
     var textElement = document.createElement("p");
+    textElement.id = "textBox";
     textElement.innerText = todo.description;
     textElement.contentEditable = "false";
     todoNode.appendChild(textElement);
 
     // edit button
     var editButtonNode = document.createElement("button");
+
+    editButtonNode.id = "editBox";
     var editIcon = document.createElement("i");
-    editIcon.innerHTML = '<i class="material-icons">&#xe22b;</i>';
+    editIcon.innerHTML = '<i style={font-size:24px} class="far">&#xf044;</i>';
+    editIcon.style.alignContent = "center";
+
     editButtonNode.appendChild(editIcon);
     todoNode.appendChild(editButtonNode);
     var count = 1;
@@ -71,8 +82,9 @@
     // add span holding descriptiondeleteTodo
     // this adds the delete button
     var deleteButtonNode = document.createElement("button");
+    deleteButtonNode.id = "deleteBox";
     var deleteIcon = document.createElement("i");
-    deleteIcon.innerHTML = '<i class="material-icons">&#10007;</i>';
+    deleteIcon.innerHTML = '<i class="glyphicon glyphicon-remove" ></i>';
     deleteButtonNode.appendChild(deleteIcon);
 
     deleteButtonNode.style.background = "red";
@@ -83,7 +95,7 @@
     todoNode.appendChild(deleteButtonNode);
 
     // add markTodo button
-    // var markTodo = getElementById();
+
     // add classes for css
 
     return todoNode;

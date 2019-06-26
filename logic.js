@@ -62,7 +62,7 @@ var todoFunctions = {
     // should leave the input arguement todos unchanged (you can use cloneArrayOfObjects)
     // sortFunction will have same signature as the sort function in array.sort
     // hint: array.slice, array.sort
-    var sortFunction = (a, b) => (a.status > b.status ? 1 : -1);
+    // var sortFunction = (a, b) => (a.status > b.status ? 1 : -1);
     var sorted = todos.sort(sortFunction);
     return sorted;
   }
