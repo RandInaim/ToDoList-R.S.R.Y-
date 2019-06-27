@@ -34,7 +34,7 @@ test("Adding items", function(t) {
 });
 
 test("Deleting items", function(t) {
-  var actual = [
+  var todos = [
     {
       id: 1,
       status: false,
@@ -55,14 +55,14 @@ test("Deleting items", function(t) {
     }
   ];
 
-  var idToDelete = actual[0].id;
-  actual = logic.deleteTodo(actual, 2);
+  var idToDelete = todos[0].id;
+  var actual = logic.deleteTodo(todos, 2);
   t.deepEqual(actual, expected, "Should return array with deleted to do");
   t.end();
 });
 
 test("Mark ToDo", function(t) {
-  var actual = [
+  var todos = [
     {
       id: 1,
       status: false,
@@ -88,8 +88,7 @@ test("Mark ToDo", function(t) {
     }
   ];
   var idToMark = 1;
-  actual = logic.markTodo(actual, idToMark);
-
+  var actual = logic.markTodo(todos, idToMark);
   t.deepEqual(actual, expected, "Should return a marked toDo");
   t.end();
 });

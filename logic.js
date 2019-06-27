@@ -13,7 +13,7 @@ var todoFunctions = {
     }
 
     return incrementCounter;
-  })(),
+  })(), //this line for when we excute this code the functin call it selfe
 
   //cloneArrayOfObjects will create a copy of the todos array
   //changes to the new array don't affect the original
@@ -43,13 +43,13 @@ var todoFunctions = {
     });
     return result;
   },
-
   markTodo: function(todos, idToMark) {
     // should leave the input argument todos unchanged (you can use cloneArrayOfObjects)
     // in the new todo array, all elements will remain unchanged except the one with id: idToMark
     // this element will have its done value toggled
     // hint: array.map
-    var updated = todos.map(function(ele) {
+    var updated = this.cloneArrayOfObjects(todos);
+    updated = updated.map(function(ele) {
       if (ele.id == idToMark) {
         ele.status = !ele.status;
       }
