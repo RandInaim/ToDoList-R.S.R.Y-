@@ -50,25 +50,28 @@
     });
 
     // text of item list
-    checkbox.id = "cBox";
+    checkbox.setAttribute("class", "cBox");
     checkbox.type = "checkbox";
     todoNode.appendChild(checkbox);
 
     // text of item list
+
     var textElement = document.createElement("p");
     textElement.id = "textBox";
     textElement.innerText = todo.description;
+    textElement.setAttribute("class", "extBox");
     textElement.contentEditable = "false";
     todoNode.appendChild(textElement);
 
     // edit button
     var editButtonNode = document.createElement("button");
 
-    editButtonNode.id = "editBox";
+    editButtonNode.setAttribute("class", "editBox");
+    editButtonNode.setAttribute("title", "press again to save");
     var editIcon = document.createElement("i");
-    editIcon.innerHTML = '<i style={font-size:24px} class="far">&#xf044;</i>';
-    editIcon.style.alignContent = "center";
+    editIcon.innerHTML = '<i style={font-size:240px} class="far">&#xf044;</i>';
 
+    editIcon.style.alignContent = "center";
     editButtonNode.appendChild(editIcon);
     todoNode.appendChild(editButtonNode);
     var count = 1;
@@ -77,6 +80,8 @@
         textElement.contentEditable = true;
       } else {
         textElement.contentEditable = false;
+        todo.description = document.getElementById("textBox").innerText;
+        update(state);
       }
       count++;
     });
@@ -84,7 +89,7 @@
     // add span holding descriptiondeleteTodo
     // this adds the delete button
     var deleteButtonNode = document.createElement("button");
-    deleteButtonNode.id = "deleteBox";
+    deleteButtonNode.setAttribute("class", "deleteBox");
     var deleteIcon = document.createElement("i");
     deleteIcon.innerHTML = '<i class="glyphicon glyphicon-remove" ></i>';
     deleteButtonNode.appendChild(deleteIcon);
