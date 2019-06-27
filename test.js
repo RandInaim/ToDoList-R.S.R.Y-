@@ -5,26 +5,26 @@ test("Adding items", function(t) {
   var todos = [
     {
       id: 1,
-      done: false,
+      status: false,
       text: "do that blah balh"
     }
   ];
 
   var newTodo = {
     id: 2,
-    done: true,
+    status: true,
     text: "read a book"
   };
 
   var expected = [
     {
       id: 1,
-      done: false,
+      status: false,
       text: "do that blah balh"
     },
     {
       id: 2,
-      done: true,
+      status: true,
       text: "read a book"
     }
   ];
@@ -37,12 +37,12 @@ test("Deleting items", function(t) {
   var actual = [
     {
       id: 1,
-      done: false,
+      status: false,
       text: "do that blah balh"
     },
     {
       id: 2,
-      done: true,
+      status: true,
       text: "read a book"
     }
   ];
@@ -50,7 +50,7 @@ test("Deleting items", function(t) {
   var expected = [
     {
       id: 1,
-      done: false,
+      status: false,
       text: "do that blah balh"
     }
   ];
@@ -65,12 +65,12 @@ test("Mark ToDo", function(t) {
   var actual = [
     {
       id: 1,
-      done: false,
+      status: false,
       text: "do that blah balh"
     },
     {
       id: 2,
-      done: true,
+      status: true,
       text: "read a book"
     }
   ];
@@ -78,12 +78,12 @@ test("Mark ToDo", function(t) {
   var expected = [
     {
       id: 1,
-      done: true,
+      status: true,
       text: "do that blah balh"
     },
     {
       id: 2,
-      done: true,
+      status: true,
       text: "read a book"
     }
   ];
@@ -98,27 +98,27 @@ test("Sorting todo list", function(t) {
   var actual = [
     {
       id: 1,
-      done: false,
+      status: false,
       text: "do that blah balh"
     },
     {
       id: 2,
-      done: true,
+      status: true,
       text: "read a book"
     },
     {
       id: 3,
-      done: false,
+      status: false,
       text: "Write a book"
     },
     {
       id: 4,
-      done: true,
+      status: true,
       text: "Go to gym"
     },
     {
       id: 5,
-      done: false,
+      status: false,
       text: "Watch a movie"
     }
   ];
@@ -126,31 +126,31 @@ test("Sorting todo list", function(t) {
   var expected = [
     {
       id: 1,
-      done: false,
+      status: false,
       text: "do that blah balh"
     },
     {
       id: 3,
-      done: false,
+      status: false,
       text: "Write a book"
     },
     {
       id: 5,
-      done: false,
+      status: false,
       text: "Watch a movie"
     },
     {
       id: 2,
-      done: true,
+      status: true,
       text: "read a book"
     },
     {
       id: 4,
-      done: true,
+      status: true,
       text: "Go to gym"
     }
   ];
-  var sortFunction = (a, b) => (a.done > b.done ? 1 : -1);
+  var sortFunction = (a, b) => (a.status > b.status ? 1 : -1);
   actual = logic.sortTodos(actual, sortFunction);
   t.deepEqual(actual, expected, "Should return a sorted array");
   t.end();
