@@ -50,7 +50,7 @@ var todoFunctions = {
     // this element will have its done value toggled
     // hint: array.map
     var updated = todos.map(function(ele) {
-      if (ele.id == idToMark) {
+      if (ele.id === idToMark) {
         ele.status = !ele.status;
       }
       return ele;
