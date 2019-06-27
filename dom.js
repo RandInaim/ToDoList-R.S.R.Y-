@@ -95,11 +95,6 @@
       update(newState);
     });
     todoNode.appendChild(deleteButtonNode);
-
-    // add markTodo button
-
-    // add classes for css
-
     return todoNode;
   };
 
